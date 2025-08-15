@@ -1,17 +1,28 @@
 from pydantic import BaseModel
 from typing import Optional
+from decimal import Decimal
 
 
-class TodoItem(BaseModel):
+class Product(BaseModel):
     id: int
-    title: Optional[str] = None
-    isComplete: bool = False
+    name: str
+    sku: str
+    stock: int
+    price: Decimal
+    category: str
 
 
-class CreateTodoCommand(BaseModel):
-    title: str
+class CreateProductCommand(BaseModel):
+    name: str
+    sku: str
+    stock: int
+    price: Decimal
+    category: str
 
 
-class UpdateTodoCommand(BaseModel):
-    title: str
-    isComplete: bool
+class UpdateProductCommand(BaseModel):
+    name: str
+    sku: str
+    stock: int
+    price: Decimal
+    category: str
